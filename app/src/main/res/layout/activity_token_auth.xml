@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".TokenAuth">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_huduma_number_or_national_id"
+        android:textSize="16sp"/>
+
+    <EditText
+        android:id="@+id/auth_token"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"/>
+
+    <Button
+        android:id="@+id/continueAuthBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_corner"
+        android:layout_marginTop="20dp"
+        android:text="Continue"
+        android:layout_marginRight="35dp"
+        android:layout_marginLeft="35dp"/>
+
+    <TextView
+        android:id="@+id/responseTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/dark_text"/>
+
+</LinearLayout>

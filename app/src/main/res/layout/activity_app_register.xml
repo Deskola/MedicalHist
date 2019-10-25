@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:orientation="vertical"
+    tools:context=".AppLoginActivity">
+
+    <ImageView
+        android:id="@+id/logoImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="60dp"
+        android:layout_gravity="center"
+        android:background="@drawable/round_corner"
+        android:src="@drawable/logot" />
+
+    <EditText
+        android:id="@+id/appRegisterEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logoImage"
+        android:layout_marginTop="15dp"
+        android:hint="Email Address"
+        android:inputType="text"
+        android:textColor="@color/textColor"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"/>
+
+    <EditText
+        android:id="@+id/appRegisterPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:hint="@string/txt_password"
+        android:inputType="textPassword"
+        android:textColor="@color/textColor"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"/>
+
+    <EditText
+        android:id="@+id/appConfPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:hint="@string/confirm_password"
+        android:inputType="textPassword"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/textColor" />
+
+    <Button
+        android:id="@+id/appRegisterButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/round_corner"
+        android:text="@string/txt_register" />
+
+
+    <Button
+        android:id="@+id/appLoginButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/round_corner"
+        android:text="@string/login_btn" />
+
+
+</LinearLayout>

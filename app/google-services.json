@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "275310859095",
+    "firebase_url": "https://appmodule-1f05e.firebaseio.com",
+    "project_id": "appmodule-1f05e",
+    "storage_bucket": "appmodule-1f05e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:275310859095:android:d277869174546ca487e412",
+        "android_client_info": {
+          "package_name": "com.example.medicalhist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "275310859095-kq3chjpksa19gfmo7nh0618jmuog877i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHaCOPx2IYkB52bYR1OW2CS1mNYFRMWwQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "275310859095-kq3chjpksa19gfmo7nh0618jmuog877i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
