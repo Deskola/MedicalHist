@@ -1,10 +1,12 @@
 package com.example.medicalhist;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,9 +15,13 @@ import android.widget.TextView;
 import com.example.medicalhist.api.APIService;
 import com.example.medicalhist.api.ApiUrl;
 import com.example.medicalhist.model.Hospital;
+import com.example.medicalhist.model.HospitalList;
+import com.example.medicalhist.recycler.HospitalAdapter;
 
 import java.util.List;
 
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -26,6 +32,7 @@ public class TokenAuth extends AppCompatActivity implements View.OnClickListener
     EditText authUser;
     Button authUserBtn;
     TextView responseTv;
+    RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +41,7 @@ public class TokenAuth extends AppCompatActivity implements View.OnClickListener
         authUser = findViewById(R.id.auth_token);
         authUserBtn = findViewById(R.id.continueAuthBtn);
         responseTv = findViewById(R.id.responseTv);
+        recyclerView = findViewById(R.id.recyclerViewHospitals);
 
 
         authUserBtn.setOnClickListener(this);
@@ -60,8 +68,14 @@ public class TokenAuth extends AppCompatActivity implements View.OnClickListener
 
         int id = Integer.parseInt(authUser.getText().toString());
 
+        HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
+        httpLoggingInterceptor.level(HttpLoggingInterceptor.Level.BODY);
+
+        OkHttpClient okHttpClient = new OkHttpClient().newBuilder().addInterceptor(httpLoggingInterceptor).build();
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(ApiUrl.BASE_URL)
+                .client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -72,36 +86,18 @@ public class TokenAuth extends AppCompatActivity implements View.OnClickListener
             @Override
             public void onResponse(Call<List<Hospital>> call, Response<List<Hospital>> response) {
                 progressDialog.dismiss();
-                if (!response.isSuccessful()){
-                    responseTv.setText("Body"+response.errorBody());
-                    return;
+                if (response.isSuccessful()){
+                    if(!response.body().isEmpty()){
+                        List<Hospital> hospitals = response.body();
+                        HospitalAdapter hospitalAdapter = new HospitalAdapter(hospitals,TokenAuth.this);
+                        recyclerView.setAdapter(hospitalAdapter);
+                    }
                 }
-
-                List<Hospital> hospitals = response.body();
-                Intent intent = new Intent(TokenAuth.this, HospitalsVisitedActivity.class);
-                Bundle bundle = new Bundle();
-                for(Hospital hospital : hospitals){
-//                    String content = "";
-//                    content +="ID :" + hospital.getHospital_id() +"\n";
-//                    content +="Name :" + hospital.getName() +"\n";
-//                    content +="Location :" + hospital.getLocation()+"\n";
-//                    content +="Logo: " + hospital.getLogo()+"\n";
-//                    responseTv.append(content);
-
-                    bundle.putInt("ID",hospital.getHospital_id());
-                    bundle.putString("Name",hospital.getName());
-                    bundle.putString("Location",hospital.getLocation());
-                    bundle.putString("Logo",hospital.getLogo());
-                    intent.putExtra("Data",bundle);
-                }
-                startActivity(intent);
-
             }
-
             @Override
             public void onFailure(Call<List<Hospital>> call, Throwable t) {
                 progressDialog.dismiss();
-                responseTv.setText(t.getMessage());
+                responseTv.setText("Here"+t.getMessage());
             }
         });
 

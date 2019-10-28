@@ -11,6 +11,12 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Hospital {
+    @SerializedName("national_id")
+    @Expose
+    private Integer national_id;
+    @SerializedName("password")
+    @Expose
+    private String password;
     @SerializedName("hospital_id")
     @Expose
     private Integer hospital_id;
@@ -23,6 +29,22 @@ public class Hospital {
     @SerializedName("logo")
     @Expose
     private String logo;
+
+    public Integer getNational_id() {
+        return national_id;
+    }
+
+    public void setNational_id(Integer national_id) {
+        this.national_id = national_id;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public Integer getHospital_id() {
         return hospital_id;
