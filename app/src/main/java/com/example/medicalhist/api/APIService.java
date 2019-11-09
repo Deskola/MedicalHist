@@ -30,8 +30,22 @@ public interface APIService {
 //    @POST("patient")
 //    Call<List<Hospital>> getHospitals(@Field("national_id") int national_id);
 
-    @GET("patient/{national_id}")
-    Call<List<Hospital>> getHospitals(@Path("national_id") int national_id);
+//    @GET("patient/{national_id}")
+//    Call<List<Hospital>> getHospitals(@Path("national_id") int national_id);
+
+    @FormUrlEncoded
+    @POST("patient")
+    Call<List<Hospital>> getHospitals(
+            @Field("national_id") int national_id,
+            @Field("email") String email
+    );
+
+    @FormUrlEncoded
+    @POST("authPatient")
+    Call<Result> authUser(
+            @Field("national_id") int national_id,
+            @Field("email") String email
+    );
 
 
     @FormUrlEncoded

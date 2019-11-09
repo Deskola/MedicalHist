@@ -10,7 +10,9 @@ import com.example.medicalhist.R;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Hospital {
+import java.io.Serializable;
+
+public class Hospital implements Serializable {
     @SerializedName("national_id")
     @Expose
     private Integer national_id;

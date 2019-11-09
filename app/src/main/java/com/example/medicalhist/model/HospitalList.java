@@ -1,8 +1,9 @@
 package com.example.medicalhist.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class HospitalList {
+public class HospitalList implements Serializable {
     public ArrayList<Hospital> hospitals;
 
     public HospitalList() {

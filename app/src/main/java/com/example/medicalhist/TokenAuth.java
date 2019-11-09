@@ -6,18 +6,22 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.medicalhist.api.APIService;
 import com.example.medicalhist.api.ApiUrl;
 import com.example.medicalhist.model.Hospital;
 import com.example.medicalhist.model.HospitalList;
+import com.example.medicalhist.model.Result;
 import com.example.medicalhist.recycler.HospitalAdapter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import okhttp3.OkHttpClient;
@@ -66,7 +70,10 @@ public class TokenAuth extends AppCompatActivity implements View.OnClickListener
         progressDialog.setMessage("Authenticating...");
         progressDialog.show();
 
+        Intent intent = getIntent();
+
         int id = Integer.parseInt(authUser.getText().toString());
+        String email = intent.getExtras().getString("Email");
 
         HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
         httpLoggingInterceptor.level(HttpLoggingInterceptor.Level.BODY);
@@ -81,23 +88,23 @@ public class TokenAuth extends AppCompatActivity implements View.OnClickListener
 
         APIService apiService = retrofit.create(APIService.class);
 
-        Call<List<Hospital>> call = apiService.getHospitals(id);
+        Call<List<Hospital>> call = apiService.getHospitals(id,email);
         call.enqueue(new Callback<List<Hospital>>() {
             @Override
             public void onResponse(Call<List<Hospital>> call, Response<List<Hospital>> response) {
                 progressDialog.dismiss();
-                if (response.isSuccessful()){
-                    if(!response.body().isEmpty()){
-                        List<Hospital> hospitals = response.body();
-                        HospitalAdapter hospitalAdapter = new HospitalAdapter(hospitals,TokenAuth.this);
-                        recyclerView.setAdapter(hospitalAdapter);
-                    }
+                if (!response.isSuccessful()){
+                    Toast.makeText(TokenAuth.this, response.errorBody().toString(), Toast.LENGTH_SHORT).show();
                 }
+                List<Hospital> hospitalList = response.body();
+                HospitalAdapter adapter = new HospitalAdapter(hospitalList,getApplication());
+                recyclerView.setAdapter(adapter);
             }
             @Override
             public void onFailure(Call<List<Hospital>> call, Throwable t) {
                 progressDialog.dismiss();
-                responseTv.setText("Here"+t.getMessage());
+                Toast.makeText(TokenAuth.this,"Invalid National Number", Toast.LENGTH_SHORT).show();
+
             }
         });
 

@@ -8,6 +8,8 @@
     android:orientation="vertical"
     tools:context=".HospitalsVisitedActivity">
 
+    <!-- our tablayout to display tabs  -->
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -15,9 +17,17 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
-    <!-- our tablayout to display tabs  -->
+        <ImageButton
+            android:id="@+id/shareIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="250dp"
+            android:src="@drawable/ic_share_black_24dp"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"

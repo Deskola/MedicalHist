@@ -54,7 +54,7 @@ public class AppLoginActivity extends AppCompatActivity implements View.OnClickL
         progressDialog.setMessage("Signing in...");
         progressDialog.show();
 
-        String email = appUsername.getText().toString().trim();
+        final String email = appUsername.getText().toString().trim();
         final String password = appPassword.getText().toString().trim();
 
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
@@ -79,6 +79,7 @@ public class AppLoginActivity extends AppCompatActivity implements View.OnClickL
                                 Toast.makeText(AppLoginActivity.this, R.string.auth_error, Toast.LENGTH_SHORT).show();
                         }else{
                             Intent intent = new Intent(getApplicationContext(), TokenAuth.class);
+                            intent.putExtra("Email",email);
                             startActivity(intent);
                             finish();
                         }
