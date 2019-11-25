@@ -119,6 +119,9 @@ public class HospitalAdapter extends RecyclerView.Adapter<HospitalAdapter.MyView
 
     @Override
     public int getItemCount() {
+        if(hospitalList.isEmpty()){
+            Toast.makeText(context, "Run RDBM", Toast.LENGTH_SHORT).show();
+        }
         return hospitalList.size();
     }
 

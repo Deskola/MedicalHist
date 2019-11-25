@@ -14,4 +14,9 @@
     <string name="txt_register">REGISTER</string>
     <string name="auth_error">Authentication Failed. Try again</string>
     <string name="enter_huduma_number_or_national_id">Enter Huduma Number or National id</string>
+    <string name="share_information">Share Information</string>
+    <string name="enter_age">Enter Age</string>
+    <string name="enter_body_mass_index_bmi">Enter Body Mass Index(BMI)</string>
+    <string name="enter_blood_pressure">Enter Blood Pressure</string>
+    <string name="enter_number_of_pregnancy">Enter Number of Pregnancy</string>
 </resources>

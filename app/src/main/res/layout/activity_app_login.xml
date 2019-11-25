@@ -10,11 +10,10 @@
 
     <ImageView
         android:id="@+id/logoImage"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginTop="60dp"
         android:layout_gravity="center"
-        android:background="@drawable/round_corner"
         android:src="@drawable/logot" />
 
     <EditText
@@ -25,8 +24,8 @@
         android:layout_marginTop="100dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:hint="Username"
-        android:inputType="text"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
         android:textColor="@color/dark_text" />
 
     <EditText
@@ -36,6 +35,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:hint="Password"
+        android:layout_marginBottom="20dp"
         android:inputType="textPassword"
         android:textColor="@color/dark_text" />
 
@@ -47,7 +47,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/round_corner"
-        android:textColor="@color/dark_text"
+        android:textColor="@color/textColor"
         android:textSize="16sp"
         android:text="LOGIN" />
 
@@ -66,9 +66,9 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:textColor="@color/textColor"
         android:background="@drawable/round_corner"
-        android:text="@string/txt_register"
-        android:textColor="@color/dark_text" />
+        android:text="@string/txt_register"/>
 
 
 </LinearLayout>

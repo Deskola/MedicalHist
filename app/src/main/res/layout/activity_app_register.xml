@@ -10,11 +10,10 @@
 
     <ImageView
         android:id="@+id/logoImage"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginTop="60dp"
         android:layout_gravity="center"
-        android:background="@drawable/round_corner"
         android:src="@drawable/logot" />
 
     <EditText
@@ -23,9 +22,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/logoImage"
         android:layout_marginTop="15dp"
-        android:hint="Email Address"
-        android:inputType="text"
-        android:textColor="@color/textColor"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/dark_text"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"/>
 
@@ -36,7 +35,7 @@
         android:layout_marginTop="5dp"
         android:hint="@string/txt_password"
         android:inputType="textPassword"
-        android:textColor="@color/textColor"
+        android:textColor="@color/dark_text"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"/>
 
@@ -49,7 +48,7 @@
         android:inputType="textPassword"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
-        android:textColor="@color/textColor" />
+        android:textColor="@color/dark_text" />
 
     <Button
         android:id="@+id/appRegisterButton"
@@ -58,9 +57,16 @@
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
+        android:textColor="@color/textColor"
         android:background="@drawable/round_corner"
         android:text="@string/txt_register" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:text="Have account?"/>
 
     <Button
         android:id="@+id/appLoginButton"
@@ -68,7 +74,8 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/textColor"
         android:background="@drawable/round_corner"
         android:text="@string/login_btn" />
 

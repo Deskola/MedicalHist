@@ -5,8 +5,11 @@
     <color name="colorAccent">#D81B60</color>
     <color name="textColor">#ffffff</color>
     <color name="card_bg">#2d2d2d</color>
-    <color name="bg_color">#A2A4AA</color>
+    <color name="bg_color">#ffffff</color>
     <color name="dark_text">#111111</color>
     <color name="button_bg">#C7C8CC</color>
+    <color name="den_bg">#3B36C4</color>
+    <color name="btn_color">#4C0C7A</color>
+
 
 </resources>
